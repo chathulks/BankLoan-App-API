@@ -14,8 +14,6 @@ function loadUserTable() {
                             <th>Role</th>
                             <th>Created Date</th>
                             <th>Password</th>
-                            <th>Refresh Token</th>
-                            <th>Token Expir Time</th>
                         </tr>
                     </thead>
             `;
@@ -31,8 +29,6 @@ function loadUserTable() {
                             <td class="bg-dark bg-opacity-75 text-white">${element.role}</td>
                             <td>${element.createdDate}</td>
                             <td>${element.password}</td>
-                            <td>${element.refreshToken}</td>
-                            <td class="bg-secondary bg-opacity-75 text-white">${element.refreshTokenExpiryTime}</td>
                         </tr>
                     </tbody>
                 `;
@@ -40,3 +36,9 @@ function loadUserTable() {
             document.getElementById("user-table").innerHTML = body;
         });
 }
+
+                            // <th>Refresh Token</th>
+                            // <th>Token Expir Time</th>
+
+                            //                             <td>${element.refreshToken}</td>
+                            // <td class="bg-secondary bg-opacity-75 text-white">${element.refreshTokenExpiryTime}</td>
