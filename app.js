@@ -46,6 +46,35 @@ function loadUserTable() {
         });
 }
 
+function new_userAdd() {
+
+    const newUser = {
+        "userId": 0,
+        "userName": "string",
+        "emailId": "string",
+        "fullName": "string",
+        "password": "string"
+    }
+
+    fetch("https://api.freeprojectapi.com/api/BankLoan/RegisterAsBankUser", {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newUser)
+    })
+        .then(response => response.json())
+        .then(data => {
+
+            loadUserTable(data);
+
+            const modalElement = document.getElementById("modal-3");
+            const modal_one = bootstrap.Modal.getInstance(modalElement);
+            modal_one.hide();
+
+            console.log(data);
+        });
+
+}
+
 let deleteUserListenerAdded = false;
 
 function deleteUser() {
@@ -142,15 +171,23 @@ function updateInputFieldClear() {
 
 function update() {
 
+    let uu_id = document.getElementById("uu_id").value;
+    let username = document.getElementById("uu_name").value;
+    let email = document.getElementById("uu_email").value;
+    let full_name = document.getElementById("uu_fullname").value;
+    let role = document.getElementById("uu_role").value;
+    let create_date = document.getElementById("uu_cd").value;
+    let pw = document.getElementById("uu_pw").value;
+
     const userData =
     {
-        "userId": document.getElementById("uu_id").value,
-        "userName": document.getElementById("uu_name").value,
-        "emailId": document.getElementById("uu_email").value,
-        "fullName": document.getElementById("uu_fullname").value,
-        "role": document.getElementById("uu_role").value,
-        "createdDate": document.getElementById("uu_cd").value,
-        "password": document.getElementById("uu_pw").value,
+        "userId": uu_id,
+        "userName": username,
+        "emailId": email,
+        "fullName": full_name,
+        "role": role,
+        "createdDate": create_date,
+        "password": pw,
         "projectName": "string",
         "refreshToken": "string",
         "refreshTokenExpiryTime": "2026-08-26T03:55:00.779Z"
@@ -163,13 +200,14 @@ function update() {
     })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
 
-            loadUserTable();
+            loadUserTable(data);
             updateInputFieldClear();
 
             const modalElement = document.getElementById("modal-3");
             const modal_one = bootstrap.Modal.getInstance(modalElement);
             modal_one.hide();
+
+            console.log(data);
         });
 }
