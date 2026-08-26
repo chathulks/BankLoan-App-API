@@ -31,10 +31,10 @@ function loadUserTable() {
                             <td><div class="d-flex align-items-center m-1">${element.createdDate}</div></td>
                             <td><div class="d-flex m-1 align-items-center">${element.password}</div></td>
                             <td class="d-flex justify-content-center align-items-center">
-                                <button class="btn border-0 p-0 m-1">
+                                <button class="btn border-0 p-0 m-1 delete-btn">
                                     <i class="bi bi-trash3-fill text-danger" style="font-size: 17px;" onclick="deleteUser()"></i>
                                 </button>
-                                <button class="btn border-0 p-0 m-1">
+                                <button class="btn border-0 p-0 m-1 update-btn">
                                     <i class="bi bi-pencil-square text-primary" style="font-size: 17px;" onclick="updateUserDataSet()"></i>
                                 </button>
                             </td>
@@ -102,6 +102,12 @@ function deleteUser() {
 
     table.addEventListener("click", function (event) {
 
+        const deleteButton = event.target.closest(".delete-btn");
+
+        if (!deleteButton) {
+            return;
+        }
+
         const row = event.target.closest("tr");
 
         if (!row || row.parentElement.tagName === "THEAD") {
@@ -139,7 +145,13 @@ function updateUserDataSet() {
 
     table.addEventListener("click", function (event) {
 
-        const row = event.target.closest("tbody tr");
+        const updateButton = event.target.closest(".update-btn");
+
+        if (!updateButton) {
+            return;
+        }
+
+        const row = event.target.closest("tr");
 
         // Ignore table header
         if (!row || row.parentElement.tagName === "THEAD") {
