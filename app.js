@@ -35,7 +35,7 @@ function loadUserTable() {
                                     <i class="bi bi-trash3-fill text-danger" style="font-size: 17px;" onclick="deleteUser()"></i>
                                 </button>
                                 <button class="btn border-0 p-0 m-1">
-                                    <i class="bi bi-pencil-square text-primary" style="font-size: 17px;" onclick="updateUser()"></i>
+                                    <i class="bi bi-pencil-square text-primary" style="font-size: 17px;" onclick="updateUserDataSet()"></i>
                                 </button>
                             </td>
                         </tr>
@@ -85,7 +85,7 @@ function deleteUser() {
 
 let updateUserListenerAdded = false;
 
-function updateUser() {
+function updateUserDataSet() {
 
     if (updateUserListenerAdded) {
         return;
