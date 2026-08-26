@@ -46,27 +46,6 @@ function loadUserTable() {
         });
 }
 
-// function deleteUser() {
-//     const table = document.getElementById("user-table");
-
-//     table.addEventListener("click", function (event) {
-
-//         const row = event.target.closest("tr");
-
-//         // Ignore table header
-//         if (!row || row.parentElement.tagName === "THEAD") {
-//             return;
-//         }
-
-//         const cells = row.querySelectorAll("td");
-
-//         const id = cells[0].textContent;
-
-//         console.log("ID:", id);
-
-//     });
-// }
-
 let deleteUserListenerAdded = false;
 
 function deleteUser() {
