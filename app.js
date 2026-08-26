@@ -156,7 +156,7 @@ function update() {
         "refreshTokenExpiryTime": "2026-08-26T03:55:00.779Z"
     };
 
-    fetch('https://fakestoreapi.com/users', {
+    fetch("https://api.freeprojectapi.com/api/BankLoan/UpdateUser", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(userData)
