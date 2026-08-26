@@ -46,6 +46,14 @@ function loadUserTable() {
         });
 }
 
+function newUserFieldClear() {
+    document.getElementById("nu_id").value = "";
+    document.getElementById("nu_name").value = "";
+    document.getElementById("nu_fullname").value = "";
+    document.getElementById("nu_email").value = "";
+    document.getElementById("nu_pw").value = "";
+}
+
 function new_userAdd() {
 
     let nuId = document.getElementById("nu_id").value;
@@ -71,6 +79,7 @@ function new_userAdd() {
         .then(data => {
 
             loadUserTable(data);
+            newUserFieldClear();
 
             const modalElement = document.getElementById("modal-1");
             const modal_one = bootstrap.Modal.getInstance(modalElement);
