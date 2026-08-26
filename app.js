@@ -14,6 +14,7 @@ function loadUserTable() {
                             <th>Role</th>
                             <th>Created Date</th>
                             <th>Password</th>
+                            <th class="d-flex justify-content-center align-items-center">Action</th>
                         </tr>
                     </thead>
             `;
@@ -29,6 +30,11 @@ function loadUserTable() {
                             <td class="bg-dark bg-opacity-75 text-white">${element.role}</td>
                             <td>${element.createdDate}</td>
                             <td>${element.password}</td>
+                            <td class="d-flex justify-content-center align-items-center">
+                                <button class="btn border-0 p-0" data-bs-toggle="modal" data-bs-target="#modal-1">
+                                    <i class="bi bi-trash3-fill text-danger" style="font-size: 17px;"></i>
+                                </button>
+                            </td>
                         </tr>
                     </tbody>
                 `;
@@ -37,8 +43,21 @@ function loadUserTable() {
         });
 }
 
-                            // <th>Refresh Token</th>
-                            // <th>Token Expir Time</th>
+const table = document.getElementById("user-table");
 
-                            //                             <td>${element.refreshToken}</td>
-                            // <td class="bg-secondary bg-opacity-75 text-white">${element.refreshTokenExpiryTime}</td>
+table.addEventListener("click", function (event) {
+
+    const row = event.target.closest("tr");
+
+    // Ignore table header
+    if (!row || row.parentElement.tagName === "THEAD") {
+        return;
+    }
+
+    const cells = row.querySelectorAll("td");
+
+    const id = cells[0].textContent;
+
+    console.log("ID:", id);
+
+});
