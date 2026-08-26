@@ -69,6 +69,15 @@ function deleteUser() {
         const id = cells[0].textContent.trim();
 
         console.log("ID:", id);
+
+        fetch(`https://api.freeprojectapi.com/api/BankLoan/DeleteUserByUserId?userId=${id}`, {
+            method: 'DELETE'
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                loadUserTable();
+            });
     });
 
     deleteUserListenerAdded = true;
@@ -103,13 +112,19 @@ function updateUser() {
         const c_date = cells[5].textContent;
         const pw = cells[6].textContent;
 
-        console.log("ID:", id);
-        console.log("Username:", uname);
-        console.log("Email:", email);
-        console.log("Full Name:", full_name);
-        console.log("Role:", role);
-        console.log("Create Date:", c_date);
-        console.log("Password:", pw);
+        const modal = new bootstrap.Modal(
+            document.getElementById("modal-3")
+        );
+
+        document.getElementById("u_id").value = id;
+        document.getElementById("u_name").value = uname;
+        document.getElementById("u_fullname").value = full_name;
+        document.getElementById("u_email").value = email;
+        document.getElementById("u_pw").value = pw;
+        document.getElementById("u_cd").value = c_date;
+        document.getElementById("u_role").value = role;
+
+        modal.show();
 
     });
     updateUserListenerAdded = true;
