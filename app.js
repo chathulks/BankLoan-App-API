@@ -129,3 +129,47 @@ function updateUserDataSet() {
     });
     updateUserListenerAdded = true;
 }
+
+function updateInputFieldClear() {
+    document.getElementById("uu_id").value = "";
+    document.getElementById("uu_name").value = "";
+    document.getElementById("uu_fullname").value = "";
+    document.getElementById("uu_email").value = "";
+    document.getElementById("uu_pw").value = "";
+    document.getElementById("uu_cd").value = "";
+    document.getElementById("uu_role").value = "";
+}
+
+function update() {
+
+    const userData =
+    {
+        "userId": document.getElementById("uu_id").value,
+        "userName": document.getElementById("uu_name").value,
+        "emailId": document.getElementById("uu_email").value,
+        "fullName": document.getElementById("uu_fullname").value,
+        "role": document.getElementById("uu_role").value,
+        "createdDate": document.getElementById("uu_cd").value,
+        "password": document.getElementById("uu_pw").value,
+        "projectName": "string",
+        "refreshToken": "string",
+        "refreshTokenExpiryTime": "2026-08-26T03:55:00.779Z"
+    };
+
+    fetch('https://fakestoreapi.com/users', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(userData)
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+
+            loadUserTable();
+            updateInputFieldClear();
+
+            const modalElement = document.getElementById("modal-3");
+            const modal_one = bootstrap.Modal.getInstance(modalElement);
+            modal_one.hide();
+        });
+}
