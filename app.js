@@ -116,13 +116,13 @@ function updateUser() {
             document.getElementById("modal-3")
         );
 
-        document.getElementById("u_id").value = id;
-        document.getElementById("u_name").value = uname;
-        document.getElementById("u_fullname").value = full_name;
-        document.getElementById("u_email").value = email;
-        document.getElementById("u_pw").value = pw;
-        document.getElementById("u_cd").value = c_date;
-        document.getElementById("u_role").value = role;
+        document.getElementById("uu_id").value = id;
+        document.getElementById("uu_name").value = uname;
+        document.getElementById("uu_fullname").value = full_name;
+        document.getElementById("uu_email").value = email;
+        document.getElementById("uu_pw").value = pw;
+        document.getElementById("uu_cd").value = c_date;
+        document.getElementById("uu_role").value = role;
 
         modal.show();
 
