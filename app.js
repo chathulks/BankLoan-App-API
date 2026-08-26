@@ -31,8 +31,11 @@ function loadUserTable() {
                             <td>${element.createdDate}</td>
                             <td>${element.password}</td>
                             <td class="d-flex justify-content-center align-items-center">
-                                <button class="btn border-0 p-0" data-bs-toggle="modal" data-bs-target="#modal-1">
-                                    <i class="bi bi-trash3-fill text-danger" style="font-size: 17px;"></i>
+                                <button class="btn border-0 p-0 m-1">
+                                    <i class="bi bi-trash3-fill text-danger" style="font-size: 17px;" onclick="deleteUser()"></i>
+                                </button>
+                                <button class="btn border-0 p-0 m-1">
+                                    <i class="bi bi-pencil-square text-primary" style="font-size: 17px;" onclick="deleteUser()"></i>
                                 </button>
                             </td>
                         </tr>
@@ -43,21 +46,23 @@ function loadUserTable() {
         });
 }
 
-const table = document.getElementById("user-table");
+function deleteUser() {
+    const table = document.getElementById("user-table");
 
-table.addEventListener("click", function (event) {
+    table.addEventListener("click", function (event) {
 
-    const row = event.target.closest("tr");
+        const row = event.target.closest("tr");
 
-    // Ignore table header
-    if (!row || row.parentElement.tagName === "THEAD") {
-        return;
-    }
+        // Ignore table header
+        if (!row || row.parentElement.tagName === "THEAD") {
+            return;
+        }
 
-    const cells = row.querySelectorAll("td");
+        const cells = row.querySelectorAll("td");
 
-    const id = cells[0].textContent;
+        const id = cells[0].textContent;
 
-    console.log("ID:", id);
+        console.log("ID:", id);
 
-});
+    });
+}
