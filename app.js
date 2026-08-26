@@ -48,12 +48,18 @@ function loadUserTable() {
 
 function new_userAdd() {
 
+    let nuId = document.getElementById("nu_id").value;
+    let nuUname = document.getElementById("nu_name").value;
+    let nuFullname = document.getElementById("nu_fullname").value;
+    let nuEmail = document.getElementById("nu_email").value;
+    let nuPw = document.getElementById("nu_pw").value;
+
     const newUser = {
-        "userId": 0,
-        "userName": "string",
-        "emailId": "string",
-        "fullName": "string",
-        "password": "string"
+        "userId": nuId,
+        "userName": nuUname,
+        "emailId": nuEmail,
+        "fullName": nuFullname,
+        "password": nuPw
     }
 
     fetch("https://api.freeprojectapi.com/api/BankLoan/RegisterAsBankUser", {
