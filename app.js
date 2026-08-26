@@ -72,7 +72,7 @@ function new_userAdd() {
 
             loadUserTable(data);
 
-            const modalElement = document.getElementById("modal-3");
+            const modalElement = document.getElementById("modal-1");
             const modal_one = bootstrap.Modal.getInstance(modalElement);
             modal_one.hide();
 
@@ -194,9 +194,9 @@ function update() {
         "role": role,
         "createdDate": create_date,
         "password": pw,
-        "projectName": "string",
-        "refreshToken": "string",
-        "refreshTokenExpiryTime": "2026-08-26T03:55:00.779Z"
+        "projectName": "BankLoan",
+        "refreshToken": null,
+        "refreshTokenExpiryTime": null
     };
 
     fetch("https://api.freeprojectapi.com/api/BankLoan/UpdateUser", {
@@ -207,13 +207,13 @@ function update() {
         .then(response => response.json())
         .then(data => {
 
-            loadUserTable(data);
+            loadUserTable();
             updateInputFieldClear();
 
             const modalElement = document.getElementById("modal-3");
             const modal_one = bootstrap.Modal.getInstance(modalElement);
             modal_one.hide();
 
-            console.log(data);
+            console.log(data.message);
         });
 }
