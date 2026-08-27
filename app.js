@@ -316,14 +316,8 @@ function loadApplicationTable() {
                             <td class="bg-dark bg-opacity-75 text-white"><div class="d-flex align-items-center m-1">${element.role}</div></td>
                             <td><div class="d-flex align-items-center m-1">${element.createdDate}</div></td>
                             <td><div class="d-flex m-1 align-items-center">${element.password}</div></td>
-                            <td class="d-flex justify-content-center align-items-center">
-                                <button class="btn border-0 p-0 m-1 delete-btn">
-                                    <i class="bi bi-trash3-fill text-danger" style="font-size: 17px;" onclick="deleteUser()"></i>
-                                </button>
-                                <button class="btn border-0 p-0 m-1 update-btn">
-                                    <i class="bi bi-pencil-square text-primary" style="font-size: 17px;" onclick="updateUserDataSet()"></i>
-                                </button>
-                            </td>
+                            <td><div class="d-flex align-items-center m-1">${element.createdDate}</div></td>
+                            <td><div class="d-flex m-1 align-items-center">${element.password}</div></td>
                         </tr>
                     </tbody>
                 `;
