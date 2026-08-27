@@ -293,13 +293,14 @@ function loadApplicationTable() {
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Username</th>
-                            <th>Email</th>
+                            <th>Applied Date</th>
+                            <th>Status</th>
                             <th>Full Name</th>
-                            <th>Role</th>
-                            <th>Created Date</th>
-                            <th>Password</th>
-                            <th class="d-flex justify-content-center align-items-center">Action</th>
+                            <th>Email</th>
+                            <th>Employement Status</th>
+                            <th>Customer Mobile</th>
+                            <th>Assigned Bank Employee</th>
+                            <th>Pan Card</th>
                         </tr>
                     </thead>
             `;
