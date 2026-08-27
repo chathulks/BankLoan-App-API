@@ -327,6 +327,6 @@ function loadApplicationTable() {
                     </tbody>
                 `;
             });
-            document.getElementById("user-table").innerHTML = body;
+            document.getElementById("application-table").innerHTML = body;
         });
 }
