@@ -239,6 +239,14 @@ function update() {
         });
 }
 
+function newCustomerFieldClear() {
+    document.getElementById("cus_id").value = "";
+    document.getElementById("cus_name").value = "";
+    document.getElementById("cus_fullname").value = "";
+    document.getElementById("cus_email").value = "";
+    document.getElementById("cus_pw").value = "";
+}
+
 function new_customerAdd() {
 
     let cusId = document.getElementById("cus_id").value;
