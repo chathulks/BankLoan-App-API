@@ -284,7 +284,7 @@ function new_customerAdd() {
 }
 
 function loadApplicationTable() {
-    fetch("https://api.freeprojectapi.com/api/BankLoan/GetAllUsers")
+    fetch("https://api.freeprojectapi.com/api/BankLoan/GetAllApplications")
         .then(response => response.json())
         .then(data => {
             const user = data.data;
@@ -309,15 +309,15 @@ function loadApplicationTable() {
                 body += `
                     <tbody>
                         <tr>
-                            <td class="bg-danger bg-opacity-75 text-white"><div class="d-flex align-items-center m-1">${element.userId}</div></td>
-                            <td><div class="d-flex align-items-center m-1">${element.userName}</div></td>
-                            <td><div class="d-flex align-items-center m-1">${element.emailId}</div></td>
+                            <td class="bg-danger bg-opacity-75 text-white"><div class="d-flex align-items-center m-1">${element.applicantID}</div></td>
+                            <td><div class="d-flex align-items-center m-1">${element.dateApplied}</div></td>
+                            <td><div class="d-flex align-items-center m-1">${element.applicationStatus}</div></td>
                             <td><div class="d-flex align-items-center m-1">${element.fullName}</div></td>
-                            <td class="bg-dark bg-opacity-75 text-white"><div class="d-flex align-items-center m-1">${element.role}</div></td>
-                            <td><div class="d-flex align-items-center m-1">${element.createdDate}</div></td>
-                            <td><div class="d-flex m-1 align-items-center">${element.password}</div></td>
-                            <td><div class="d-flex align-items-center m-1">${element.createdDate}</div></td>
-                            <td><div class="d-flex m-1 align-items-center">${element.password}</div></td>
+                            <td class="bg-dark bg-opacity-75 text-white"><div class="d-flex align-items-center m-1">${element.email}</div></td>
+                            <td><div class="d-flex align-items-center m-1">${element.employmentStatus}</div></td>
+                            <td><div class="d-flex m-1 align-items-center">${element.customerPhone}</div></td>
+                            <td><div class="d-flex align-items-center m-1">${element.assignedToBankEmployee}</div></td>
+                            <td><div class="d-flex m-1 align-items-center">${element.panCard}</div></td>
                         </tr>
                     </tbody>
                 `;
