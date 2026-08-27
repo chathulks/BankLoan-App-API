@@ -272,7 +272,7 @@ function new_customerAdd() {
         .then(data => {
 
             loadUserTable();
-            newUserFieldClear();
+            newCustomerFieldClear();
 
             const modalElement = document.getElementById("modal-2");
             const modal_one = bootstrap.Modal.getInstance(modalElement);
