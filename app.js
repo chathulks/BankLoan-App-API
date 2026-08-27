@@ -241,18 +241,18 @@ function update() {
 
 function new_customerAdd() {
 
-    let nuId = document.getElementById("nu_id").value;
-    let nuUname = document.getElementById("nu_name").value;
-    let nuFullname = document.getElementById("nu_fullname").value;
-    let nuEmail = document.getElementById("nu_email").value;
-    let nuPw = document.getElementById("nu_pw").value;
+    let cusId = document.getElementById("cus_id").value;
+    let cusUname = document.getElementById("cus_name").value;
+    let cusFullname = document.getElementById("cus_fullname").value;
+    let cusEmail = document.getElementById("cus_email").value;
+    let cusPw = document.getElementById("cus_pw").value;
 
     const newCustomer = {
-        "userId": nuId,
-        "userName": nuUname,
-        "emailId": nuEmail,
-        "fullName": nuFullname,
-        "password": nuPw
+        "userId": cusId,
+        "userName": cusUname,
+        "emailId": cusEmail,
+        "fullName": cusFullname,
+        "password": cusPw
     }
 
     fetch("https://api.freeprojectapi.com/api/BankLoan/RegisterCustomer", {
