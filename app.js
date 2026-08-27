@@ -238,3 +238,39 @@ function update() {
             console.log(data.message);
         });
 }
+
+function new_customerAdd() {
+
+    let nuId = document.getElementById("nu_id").value;
+    let nuUname = document.getElementById("nu_name").value;
+    let nuFullname = document.getElementById("nu_fullname").value;
+    let nuEmail = document.getElementById("nu_email").value;
+    let nuPw = document.getElementById("nu_pw").value;
+
+    const newCustomer = {
+        "userId": nuId,
+        "userName": nuUname,
+        "emailId": nuEmail,
+        "fullName": nuFullname,
+        "password": nuPw
+    }
+
+    fetch("https://api.freeprojectapi.com/api/BankLoan/RegisterCustomer", {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newCustomer)
+    })
+        .then(response => response.json())
+        .then(data => {
+
+            loadUserTable();
+            newUserFieldClear();
+
+            const modalElement = document.getElementById("modal-2");
+            const modal_one = bootstrap.Modal.getInstance(modalElement);
+            modal_one.hide();
+
+            console.log(data);
+        });
+
+}
