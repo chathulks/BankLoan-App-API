@@ -331,4 +331,8 @@ function createNewApplication() {
         document.getElementById("modal-4")
     );
     modal.show();
+
+    let app_date = document.getElementById("app_date").value;
+    console.log(app_date.toISOString());
+    
 }
