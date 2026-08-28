@@ -37,9 +37,8 @@
         <div class="card shadow-lg border-0 p-4 rounded-3" style="width: 100%; max-width: 1450px;">
             <div class="row">
                 <div class="col-2">
-                    <button class="btn border-0 p-0" data-bs-toggle="modal" data-bs-target="#">
-                        <i class="bi bi-file-earmark-pdf-fill text-warning" style="font-size: 24px;"
-                            onclick="createNewApplication()"></i>
+                    <button class="btn border-0 p-0" data-bs-toggle="modal" data-bs-target="#modal-4" onclick="dateSet()">
+                        <i class="bi bi-file-earmark-pdf-fill text-warning" style="font-size: 24px;"></i>
                         <span>New Applications</span>
                     </button>
                 </div>
@@ -144,11 +143,11 @@
                             </div>
                             <div class="col-2">
                                 <label for="exampleInputEmail1" class="form-label fw-semibold">Credit Score</label>
-                                <input type="text" class="form-control" id="full_name">
+                                <input type="text" class="form-control" id="c_score">
                             </div>
                             <div class="col-2">
                                 <label for="exampleInputEmail1" class="form-label fw-semibold">Assets</label>
-                                <input type="text" class="form-control" id="full_name">
+                                <input type="text" class="form-control" id="assets">
                             </div>
                             <div class="col-4">
                                 <label for="exampleInputEmail1" class="form-label fw-semibold">Applied Date</label>
@@ -161,28 +160,28 @@
                         <div class="row p-4">
                             <div class="col-2">
                                 <label for="exampleInputEmail1" class="form-label fw-semibold">Loan ID</label>
-                                <input type="text" class="form-control" id="full_name">
+                                <input type="text" class="form-control" id="l_id">
                             </div>
                             <div class="col-2">
                                 <label for="exampleInputEmail1" class="form-label fw-semibold">Application
                                     ID</label>
-                                <input type="text" class="form-control" id="full_name">
+                                <input type="text" class="form-control" id="app_id">
                             </div>
                             <div class="col-2">
                                 <label for="exampleInputEmail1" class="form-label fw-semibold">Bank Name</label>
-                                <input type="text" class="form-control" id="full_name">
+                                <input type="text" class="form-control" id="bank_name">
                             </div>
                             <div class="col-2">
                                 <label for="exampleInputEmail1" class="form-label fw-semibold">Loan Amount</label>
-                                <input type="number" class="form-control" id="full_name">
+                                <input type="number" class="form-control" id="l_amount">
                             </div>
                             <div class="col-2">
                                 <label for="exampleInputEmail1" class="form-label fw-semibold">EMI</label>
-                                <input type="text" class="form-control" id="full_name">
+                                <input type="text" class="form-control" id="emi">
                             </div>
                             <div class="col-2">
                                 <label for="exampleInputEmail1" class="form-label fw-semibold">Customer ID</label>
-                                <select class="form-select" aria-label="Default select example">
+                                <select class="form-select" id="cus_id">
                                     <option selected>Select</option>
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
@@ -194,7 +193,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-warning" onclick="dateSet()">Save</button>
+                    <button type="button" class="btn btn-warning" onclick="saveApplication()">Save</button>
                 </div>
             </div>
         </div>

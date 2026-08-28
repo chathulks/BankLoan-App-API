@@ -326,24 +326,85 @@ function loadApplicationTable() {
         });
 }
 
-function createNewApplication() {
-    dateSet();
-    const modal = new bootstrap.Modal(
-        document.getElementById("modal-4")
-    );
-    modal.show();
-
-}
-
 function dateSet() {
     const now = new Date();
 
-    const formattedDate = now
-        .toLocaleString("sv-SE", {
-            timeZone: "Asia/Colombo"
-        })
-        .replace(" ", "T");
+    const formattedDate =
+        now
+            .toLocaleString("sv-SE", {
+                timeZone: "Asia/Colombo"
+            })
+            .replace(" ", "T")
+            .replace(",", ".") + ".000Z";
 
     document.getElementById("app_date").value = formattedDate;
-    console.log(document.getElementById("as_data").value);
+}
+
+function saveApplication() {
+
+    let full_name = document.getElementById("full_name").value;
+    let as_data = document.getElementById("as_data").value;
+    let pan_card = document.getElementById("pan_card").value;
+    let dob = document.getElementById("dob").value;
+
+    const now = new Date(dob);
+
+    const formattedDate =
+        now
+            .toLocaleString("sv-SE", {
+                timeZone: "Asia/Colombo"
+            })
+            .replace(" ", "T")
+            .replace(",", ".") + ".000Z";
+
+    let email = document.getElementById("email").value;
+    let mobile = document.getElementById("mobile").value;
+    let address = document.getElementById("address").value;
+    let city = document.getElementById("city").value;
+    let state = document.getElementById("state").value;
+    let zip_code = document.getElementById("zip_code").value;
+    let a_income = document.getElementById("a_income").value;
+    let e_status = document.getElementById("e_status").value;
+    let c_score = document.getElementById("c_score").value;
+    let assets = document.getElementById("assets").value;
+    let app_date = document.getElementById("app_date").value;
+
+    let l_id = document.getElementById("l_id").value;
+    let app_id = document.getElementById("app_id").value;
+    let bank_name = document.getElementById("bank_name").value;
+    let l_amount = document.getElementById("l_amount").value;
+    let emi = document.getElementById("emi").value;
+    let cus_id = document.getElementById("cus_id").value;
+
+    const application = {
+        "applicantID": 0,
+        "fullName": full_name,
+        "applicationStatus": as_data,
+        "panCard": pan_card,
+        "dateOfBirth": formattedDate,
+        "email": email,
+        "phone": mobile,
+        "address": address,
+        "city": city,
+        "state": state,
+        "zipCode": zip_code,
+        "annualIncome": a_income,
+        "employmentStatus": e_status,
+        "creditScore": c_score,
+        "assets": assets,
+        "dateApplied": app_date,
+        "loans": [
+            {
+                "loanID": l_id,
+                "applicantID": app_id,
+                "bankName": bank_name,
+                "loanAmount": l_amount,
+                "emi": emi
+            }
+        ],
+        "customerId": cus_id
+    }
+
+    console.log(application);
+    
 }
