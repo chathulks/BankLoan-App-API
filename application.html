@@ -38,7 +38,8 @@
             <div class="row">
                 <div class="col-2">
                     <button class="btn border-0 p-0" data-bs-toggle="modal" data-bs-target="#">
-                        <i class="bi bi-file-earmark-pdf-fill text-success" style="font-size: 24px;" onclick="createNewApplication()"></i>
+                        <i class="bi bi-file-earmark-pdf-fill text-warning" style="font-size: 24px;"
+                            onclick="createNewApplication()"></i>
                         <span>New Applications</span>
                     </button>
                 </div>
@@ -52,19 +53,21 @@
     <!--User Table Section  -->
 
     <!-- New Application -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modal-4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-fullscreen">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-header d-flex justify-content-center align-items-center">
+                    <div class="row d-flex justify-content-center align-items-center">
+                        <img src="logo/pngwing.com(1).png" alt="bank-image" style="width: 150px;">
+                        <span class="fs-4 fw-semibold text-center">Create New Application</span>
+                    </div>
                 </div>
                 <div class="modal-body">
-                    
+
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-warning">Save</button>
                 </div>
             </div>
         </div>

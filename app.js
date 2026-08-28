@@ -326,6 +326,9 @@ function loadApplicationTable() {
         });
 }
 
-function createNewApplication(){
-    
+function createNewApplication() {
+    const modal = new bootstrap.Modal(
+        document.getElementById("modal-4")
+    );
+    modal.show();
 }
