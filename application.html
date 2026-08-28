@@ -73,11 +73,12 @@
                             <div class="col-2">
                                 <label for="exampleInputEmail1" class="form-label fw-semibold">Application
                                     Status</label>
-                                <select class="form-select" aria-label="Default select example">
+                                <select class="form-select" id="as_data">
                                     <option selected>Select</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    <option value="Salaried">Salaried</option>
+                                    <option value="Self-Employed">Self-Employed</option>
+                                    <option value="Business">Business</option>
+                                    <option value="Unemployed">Unemployed</option>
                                 </select>
                             </div>
                             <div class="col-2">
@@ -183,7 +184,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-warning" onclick="test()">Save</button>
+                    <button type="button" class="btn btn-warning" onclick="dateSet()">Save</button>
                 </div>
             </div>
         </div>

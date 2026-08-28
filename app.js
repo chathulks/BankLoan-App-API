@@ -345,4 +345,5 @@ function dateSet() {
         .replace(" ", "T");
 
     document.getElementById("app_date").value = formattedDate;
+    console.log(document.getElementById("as_data").value);
 }
