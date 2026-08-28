@@ -332,7 +332,12 @@ function createNewApplication() {
     );
     modal.show();
 
-    let app_date = document.getElementById("app_date").value;
-    console.log(app_date.toISOString());
-    
+}
+
+function test() {
+
+    const date = new Date(document.getElementById("app_date").value);
+
+    console.log(date.toISOString());
+
 }
