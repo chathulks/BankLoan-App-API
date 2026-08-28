@@ -327,6 +327,7 @@ function loadApplicationTable() {
 }
 
 function createNewApplication() {
+    dateSet();
     const modal = new bootstrap.Modal(
         document.getElementById("modal-4")
     );
@@ -334,10 +335,14 @@ function createNewApplication() {
 
 }
 
-function test() {
+function dateSet() {
+    const now = new Date();
 
-    const date = new Date(document.getElementById("app_date").value);
+    const formattedDate = now
+        .toLocaleString("sv-SE", {
+            timeZone: "Asia/Colombo"
+        })
+        .replace(" ", "T");
 
-    console.log(date.toISOString());
-
+    document.getElementById("app_date").value = formattedDate;
 }
