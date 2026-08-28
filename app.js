@@ -325,3 +325,7 @@ function loadApplicationTable() {
             document.getElementById("application-table").innerHTML = body;
         });
 }
+
+function createNewApplication(){
+    
+}
