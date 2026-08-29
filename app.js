@@ -340,6 +340,42 @@ function dateSet() {
     document.getElementById("app_date").value = formattedDate;
 }
 
+function saveApplicationFieldClear() {
+    document.getElementById("full_name").value = "";
+    document.getElementById("as_data").value = "";
+    document.getElementById("pan_card").value = "";
+    document.getElementById("dob").value = "";
+
+    const now = new Date(dob);
+
+    const formattedDate =
+        now
+            .toLocaleString("sv-SE", {
+                timeZone: "Asia/Colombo"
+            })
+            .replace(" ", "T")
+            .replace(",", ".") + ".000Z";
+
+    document.getElementById("email").value = "";
+    document.getElementById("mobile").value = "";
+    document.getElementById("address").value = "";
+    document.getElementById("city").value = "";
+    document.getElementById("state").value = "";
+    document.getElementById("zip_code").value = "";
+    document.getElementById("a_income").value = "";
+    document.getElementById("e_status").value = "";
+    document.getElementById("c_score").value = "";
+    document.getElementById("assets").value = "";
+    document.getElementById("app_date").value = "";
+
+    document.getElementById("l_id").value = "";
+    document.getElementById("app_id").value = "";
+    document.getElementById("bank_name").value = "";
+    document.getElementById("l_amount").value = "";
+    document.getElementById("emi").value = "";
+    document.getElementById("cus_id").value = "";
+}
+
 function saveApplication() {
 
     let full_name = document.getElementById("full_name").value;
@@ -377,7 +413,7 @@ function saveApplication() {
     let cus_id = document.getElementById("cus_id").value;
 
     const application = {
-        "applicantID": 0,
+        "applicantID": app_id,
         "fullName": full_name,
         "applicationStatus": as_data,
         "panCard": pan_card,
@@ -406,5 +442,23 @@ function saveApplication() {
     }
 
     console.log(application);
-    
+
+    fetch("https://api.freeprojectapi.com/api/BankLoan/RegisterCustomer", {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(application)
+    })
+        .then(response => response.json())
+        .then(data => {
+
+            loadApplicationTable();
+            saveApplicationFieldClear();
+
+            const modalElement = document.getElementById("modal-2");
+            const modal_one = bootstrap.Modal.getInstance(modalElement);
+            modal_one.hide();
+
+            console.log(data);
+        });
+
 }
