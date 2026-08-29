@@ -289,7 +289,7 @@ function loadApplicationTable() {
         .then(data => {
             const user = data.data;
             let body = `
-                    <caption>List of users</caption>
+                    <caption>List of Application</caption>
                     <thead>
                         <tr>
                             <th>ID</th>
