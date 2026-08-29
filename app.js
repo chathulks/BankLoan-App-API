@@ -477,3 +477,7 @@ function saveApplication() {
 
 }
 
+function userIDUseSearchApplication(){
+    https://api.freeprojectapi.com/api/BankLoan/GetMyApplications?customerId=4444
+    let user_id = document.getElementById("").value;
+}
