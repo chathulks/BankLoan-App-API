@@ -342,18 +342,18 @@ function dateSet() {
 
 function saveApplicationFieldClear() {
     document.getElementById("full_name").value = "";
-    document.getElementById("as_data").value = "";
+    document.getElementById("as_data").value = 0;
     document.getElementById("pan_card").value = "";
     document.getElementById("dob").value = "";
 
     document.getElementById("email").value = "";
     document.getElementById("mobile").value = "";
     document.getElementById("address").value = "";
-    document.getElementById("city").value = "";
+    document.getElementById("city").value = 0;
     document.getElementById("state").value = "";
     document.getElementById("zip_code").value = "";
     document.getElementById("a_income").value = "";
-    document.getElementById("e_status").value = "";
+    document.getElementById("e_status").value = 0;
     document.getElementById("c_score").value = "";
     document.getElementById("assets").value = "";
     document.getElementById("app_date").value = "";
@@ -363,7 +363,7 @@ function saveApplicationFieldClear() {
     document.getElementById("bank_name").value = "";
     document.getElementById("l_amount").value = "";
     document.getElementById("emi").value = "";
-    document.getElementById("cus_id").value = "";
+    document.getElementById("cus_id").value = 0;
 }
 
 function saveApplication() {
