@@ -480,7 +480,7 @@ function saveApplication() {
 function userIDUseSearchApplication() {
 
     let user_id = document.getElementById("search_user_id").value;
-    
+
     fetch(`https://api.freeprojectapi.com/api/BankLoan/GetMyApplications?customerId=${user_id}`)
         .then(response => response.json())
         .then(data => {
@@ -492,10 +492,7 @@ function userIDUseSearchApplication() {
                             <th>ID</th>
                             <th>Applied Date</th>
                             <th>Status</th>
-                            <th>Full Name</th>
-                            <th>Email</th>
                             <th>Employement Status</th>
-                            <th>Customer Mobile</th>
                             <th>Assigned Bank Employee</th>
                             <th>Pan Card</th>
                         </tr>
@@ -509,10 +506,7 @@ function userIDUseSearchApplication() {
                             <td class="bg-danger bg-opacity-75 text-white"><div class="d-flex align-items-center m-1">${element.applicantID}</div></td>
                             <td><div class="d-flex align-items-center m-1">${element.dateApplied}</div></td>
                             <td><div class="d-flex align-items-center m-1">${element.applicationStatus}</div></td>
-                            <td><div class="d-flex align-items-center m-1">${element.fullName}</div></td>
-                            <td class="bg-dark bg-opacity-75 text-white"><div class="d-flex align-items-center m-1">${element.email}</div></td>
                             <td><div class="d-flex align-items-center m-1">${element.employmentStatus}</div></td>
-                            <td><div class="d-flex m-1 align-items-center">${element.customerPhone}</div></td>
                             <td><div class="d-flex align-items-center m-1">${element.assignedToBankEmployee}</div></td>
                             <td><div class="d-flex m-1 align-items-center">${element.panCard}</div></td>
                         </tr>
@@ -521,7 +515,7 @@ function userIDUseSearchApplication() {
             });
             document.getElementById("application-table").innerHTML = body;
         });
-        allCallMy();
+    allCallMy();
 }
 
 function userIDandNameload() {
@@ -539,7 +533,7 @@ function userIDandNameload() {
 
             user.forEach(element => {
                 dropdown += `
-                    <option value="${element.userId}">${element.userId+" / "+element.fullName}</option>
+                    <option value="${element.userId}">${element.userId + " / " + element.fullName}</option>
                 `
             });
             cus_name_id.innerHTML = dropdown;
@@ -547,8 +541,80 @@ function userIDandNameload() {
 
 }
 
-function allCallMy(){
+function employeesIDandNameload() {
+
+    let emp_name_id = document.getElementById("search_emp_id");
+
+    fetch("https://api.freeprojectapi.com/api/BankLoan/GetAllUsers")
+        .then(response => response.json())
+        .then(data => {
+
+            const employee = data.data;
+            let dropdown_emp = `
+                        <option selected>Select Employee ID Searching Assigneed Application</option>
+                    `;
+
+            employee.forEach(element => {
+                if (element.role == "BankEmployee") {
+
+                    dropdown_emp += `
+                        <option value="${element.userId}">${element.userId + " / " + element.role}</option>
+                    `;
+
+                    emp_name_id.innerHTML = dropdown_emp;
+                }
+            });
+        });
+
+}
+
+function allCallMy() {
     userIDload();
     userIDandNameload();
+    employeesIDandNameload();
     dateSet();
+}
+
+function employeeIDUseSearchApplication() {
+    let emp_id = document.getElementById("search_emp_id").value;
+
+    fetch(`https://api.freeprojectapi.com/api/BankLoan/GetApplicationAssigneedToMe?bankEmployeeId=${emp_id}`)
+        .then(response => response.json())
+        .then(data => {
+            const user = data.data;
+            let body = `
+                    <caption>List of Application</caption>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Applied Date</th>
+                            <th>Status</th>
+                            <th>Full Name</th>
+                            <th>Email</th>
+                            <th>Employement Status</th>
+                            <th>Customer Mobile</th>
+                            <th>Pan Card</th>
+                        </tr>
+                    </thead>
+            `;
+
+            user.forEach(element => {
+                body += `
+                    <tbody>
+                        <tr>
+                            <td class="bg-danger bg-opacity-75 text-white"><div class="d-flex align-items-center m-1">${element.applicantID}</div></td>
+                            <td><div class="d-flex align-items-center m-1">${element.dateApplied}</div></td>
+                            <td><div class="d-flex align-items-center m-1">${element.applicationStatus}</div></td>
+                            <td><div class="d-flex align-items-center m-1">${element.fullName}</div></td>
+                            <td class="bg-dark bg-opacity-75 text-white"><div class="d-flex align-items-center m-1">${element.email}</div></td>
+                            <td><div class="d-flex align-items-center m-1">${element.employmentStatus}</div></td>
+                            <td><div class="d-flex m-1 align-items-center">${element.customerPhone}</div></td>
+                            <td><div class="d-flex m-1 align-items-center">${element.panCard}</div></td>
+                        </tr>
+                    </tbody>
+                `;
+            });
+            document.getElementById("application-table").innerHTML = body;
+        });
+    allCallMy();
 }
