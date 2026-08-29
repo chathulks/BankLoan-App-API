@@ -324,6 +324,7 @@ function loadApplicationTable() {
             });
             document.getElementById("application-table").innerHTML = body;
         });
+    userIDload();
 }
 
 function dateSet() {
@@ -364,6 +365,29 @@ function saveApplicationFieldClear() {
     document.getElementById("l_amount").value = "";
     document.getElementById("emi").value = "";
     document.getElementById("cus_id").selectedIndex = 0;
+}
+
+function userIDload() {
+
+    let cus_id = document.getElementById("cus_id");
+
+    fetch("https://api.freeprojectapi.com/api/BankLoan/GetAllUsers")
+        .then(response => response.json())
+        .then(data => {
+            const user = data.data;
+
+            let drop = `
+                <option selected>Select</option>
+            `;
+
+            user.forEach(element => {
+                drop += `
+                    <option value="${element.userId}">${element.userId}</option>
+                `
+            });
+            cus_id.innerHTML = drop;
+        });
+
 }
 
 function saveApplication() {
@@ -452,3 +476,4 @@ function saveApplication() {
         });
 
 }
+
