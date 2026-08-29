@@ -346,16 +346,6 @@ function saveApplicationFieldClear() {
     document.getElementById("pan_card").value = "";
     document.getElementById("dob").value = "";
 
-    const now = new Date(dob);
-
-    const formattedDate =
-        now
-            .toLocaleString("sv-SE", {
-                timeZone: "Asia/Colombo"
-            })
-            .replace(" ", "T")
-            .replace(",", ".") + ".000Z";
-
     document.getElementById("email").value = "";
     document.getElementById("mobile").value = "";
     document.getElementById("address").value = "";
@@ -443,7 +433,7 @@ function saveApplication() {
 
     console.log(application);
 
-    fetch("https://api.freeprojectapi.com/api/BankLoan/RegisterCustomer", {
+    fetch("https://api.freeprojectapi.com/api/BankLoan/AddNewApplication", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(application)
@@ -454,7 +444,7 @@ function saveApplication() {
             loadApplicationTable();
             saveApplicationFieldClear();
 
-            const modalElement = document.getElementById("modal-2");
+            const modalElement = document.getElementById("modal-4");
             const modal_one = bootstrap.Modal.getInstance(modalElement);
             modal_one.hide();
 
