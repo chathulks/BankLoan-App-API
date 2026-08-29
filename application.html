@@ -38,15 +38,13 @@
             <div class="row">
                 <div class="col-2">
                     <button class="btn border-0 p-0" data-bs-toggle="modal" data-bs-target="#modal-4"
-                        onclick="dateSet()">
+                        onclick="allCallMy()">
                         <i class="bi bi-file-earmark-pdf-fill text-warning" style="font-size: 24px;"></i>
                         <span>New Applications</span>
                     </button>
                 </div>
                 <div class="col-4">
-                    <select class="form-select" name="userIDsearch" id="search_user_id">
-                        <option selected>Select User ID Searching Your Application</option>
-                        <option value=""></option>
+                    <select class="form-select" name="userIDsearch" id="search_user_id" onchange="userIDUseSearchApplication()">
                     </select>
                 </div>
             </div>

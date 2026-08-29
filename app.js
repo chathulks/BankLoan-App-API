@@ -324,7 +324,7 @@ function loadApplicationTable() {
             });
             document.getElementById("application-table").innerHTML = body;
         });
-    userIDload();
+    allCallMy();
 }
 
 function dateSet() {
@@ -479,8 +479,8 @@ function saveApplication() {
 
 function userIDUseSearchApplication() {
 
-    let user_id = document.getElementById("").value;
-
+    let user_id = document.getElementById("search_user_id").value;
+    
     fetch(`https://api.freeprojectapi.com/api/BankLoan/GetMyApplications?customerId=${user_id}`)
         .then(response => response.json())
         .then(data => {
@@ -521,5 +521,34 @@ function userIDUseSearchApplication() {
             });
             document.getElementById("application-table").innerHTML = body;
         });
+        allCallMy();
+}
+
+function userIDandNameload() {
+
+    let cus_name_id = document.getElementById("search_user_id");
+
+    fetch("https://api.freeprojectapi.com/api/BankLoan/GetAllUsers")
+        .then(response => response.json())
+        .then(data => {
+            const user = data.data;
+
+            let dropdown = `
+                <option selected>Select User ID Searching Your Application</option>
+            `;
+
+            user.forEach(element => {
+                dropdown += `
+                    <option value="${element.userId}">${element.userId+" / "+element.fullName}</option>
+                `
+            });
+            cus_name_id.innerHTML = dropdown;
+        });
+
+}
+
+function allCallMy(){
     userIDload();
+    userIDandNameload();
+    dateSet();
 }
