@@ -344,7 +344,7 @@ function setPanCardNumber() {
 
         document.getElementById("pan_num").value = pan_card;
 
-        if (select_st == "null") {
+        if (select_st == "null" || select_st == "New") {
             document.getElementById("app_status").selectedIndex = 0;
         } else {
             document.getElementById("app_status").value = select_st;
@@ -392,10 +392,12 @@ function loadApplicationTable() {
                             <td><div class="d-flex m-1 align-items-center">${element.customerPhone}</div></td>
                             <td><div class="d-flex align-items-center m-1">${element.assignedToBankEmployee}</div></td>
                             <td><div class="d-flex m-1 align-items-center">${element.panCard}</div></td>
-                            <td>
-                                <button class="btn border-0 p-0 m-1 changeStatus-btn">
-                                    <i class="bi bi-arrow-up-right-square text-primary" style="font-size: 17px;" onclick="setPanCardNumber()"></i>
-                                </button>
+                            <td class="bg-success bg-opacity-75">
+                                <div class="d-flex justify-content-center">
+                                    <button class="btn border-0 p-0 m-1 changeStatus-btn">
+                                        <i class="bi bi-arrow-up-right-square text-white" style="font-size: 17px;" onclick="setPanCardNumber()"></i>
+                                    </button>
+                                </div>
                             </td>
                         </tr>
                     </tbody>
