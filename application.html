@@ -212,12 +212,30 @@
     <div class="modal fade" id="modal-5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-header d-flex justify-content-center align-items-center">
+                    <div class="row d-flex justify-content-center align-items-center">
+                        <img src="logo/pngwing.com(1).png" alt="bank-image" style="width: 150px;">
+                        <span class="fs-4 fw-semibold text-center">Change Application Status</span>
+                    </div>
                 </div>
                 <div class="modal-body">
-                    ...
+                    <div class="p-4">
+                        <div>
+                            <label for="exampleInputEmail1" class="form-label fw-semibold">PAN Card Number</label>
+                            <input type="text" class="form-control" id="pan_num" placeholder="AWEF4875ASD">
+                        </div>
+                        <div>
+                            <label for="exampleInputEmail1" class="form-label fw-semibold">Application Status</label>
+                            <select class="form-select" id="app_status">
+                                <option selected>Select Status</option>
+                                <option value="Colombo">Approved</option>
+                                <option value="Colombo">Approve</option>
+                                <option value="Kandy">Reject</option>
+                                <option value="Galle">Pending</option>
+                                <option value="Jaffna">Salaried</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
@@ -225,13 +243,12 @@
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Change Application Status -->
+        <!-- Change Application Status -->
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
-    <script src="/app.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+            crossorigin="anonymous"></script>
+        <script src="/app.js"></script>
 </body>
 
 </html>

@@ -284,7 +284,7 @@ function new_customerAdd() {
 }
 
 function changeApplicationStatus() {
-    
+
 }
 
 function loadApplicationTable() {
@@ -324,7 +324,7 @@ function loadApplicationTable() {
                             <td><div class="d-flex align-items-center m-1">${element.assignedToBankEmployee}</div></td>
                             <td><div class="d-flex m-1 align-items-center">${element.panCard}</div></td>
                             <td>
-                                <button class="btn border-0 p-0 m-1">
+                                <button class="btn border-0 p-0 m-1" data-bs-toggle="modal" data-bs-target="#modal-5">
                                     <i class="bi bi-box-arrow-up-right text-primary" style="font-size: 17px;"></i>
                                 </button>
                             </td>
