@@ -283,6 +283,10 @@ function new_customerAdd() {
 
 }
 
+function changeApplicationStatus() {
+    
+}
+
 function loadApplicationTable() {
     fetch("https://api.freeprojectapi.com/api/BankLoan/GetAllApplications")
         .then(response => response.json())
