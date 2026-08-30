@@ -283,6 +283,11 @@ function new_customerAdd() {
 
 }
 
+function clearChangeApplicationField() {
+    document.getElementById("pan_num").value = "";
+    document.getElementById("app_status").selectedIndex = 0;
+}
+
 function changeApplicationStatus() {
     let pan_card = document.getElementById("pan_num").value;
     let app_st = document.getElementById("app_status").value;
@@ -291,6 +296,14 @@ function changeApplicationStatus() {
         .then(response => response.json())
         .then(data => {
             console.log(data);
+
+            const modalElement = document.getElementById("modal-5");
+            const modal_one = bootstrap.Modal.getInstance(modalElement);
+            modal_one.hide();
+
+            clearChangeApplicationField();
+            loadApplicationTable();
+
         });
 }
 
@@ -331,7 +344,7 @@ function setPanCardNumber() {
 
         document.getElementById("pan_num").value = pan_card;
 
-        if (select_st == null) {
+        if (select_st == "null") {
             document.getElementById("app_status").selectedIndex = 0;
         } else {
             document.getElementById("app_status").value = select_st;
