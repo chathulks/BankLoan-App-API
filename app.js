@@ -700,7 +700,7 @@ function employeeIDUseSearchApplication() {
     allCallMy();
 }
 
-function login() {
+function user_login() {
     let uname = document.getElementById("username").value;
     let pw = document.getElementById("password").value;
 
