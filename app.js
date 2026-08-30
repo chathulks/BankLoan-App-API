@@ -322,6 +322,7 @@ function setPanCardNumber() {
         const cells = row.querySelectorAll("td");
 
         const pan_card = cells[8].textContent;
+        const select_st = cells[2].textContent;
 
         const modal = new bootstrap.Modal(
             document.getElementById("modal-5")
@@ -329,6 +330,12 @@ function setPanCardNumber() {
 
 
         document.getElementById("pan_num").value = pan_card;
+
+        if (select_st == null) {
+            document.getElementById("app_status").selectedIndex = 0;
+        } else {
+            document.getElementById("app_status").value = select_st;
+        }
 
         modal.show();
     });
