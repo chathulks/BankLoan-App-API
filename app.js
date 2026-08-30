@@ -284,7 +284,56 @@ function new_customerAdd() {
 }
 
 function changeApplicationStatus() {
+    let pan_card = document.getElementById("pan_num").value;
+    let app_st = document.getElementById("app_status").value;
 
+    fetch(`https://api.freeprojectapi.com/api/BankLoan/CheckApplicationStatus?panNo=${pan_card}&status=${app_st}`)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+        });
+}
+
+let setPanCardNumberListenerAdded = false;
+
+function setPanCardNumber() {
+
+    if (setPanCardNumberListenerAdded) {
+        return;
+    }
+
+    const table_application = document.getElementById("application-table");
+
+    table_application.addEventListener("click", function (event) {
+
+        const changeStatusButton = event.target.closest(".changeStatus-btn");
+
+        if (!changeStatusButton) {
+            return;
+        }
+
+        const row = event.target.closest("tr");
+
+        // Ignore table header
+        if (!row || row.parentElement.tagName === "THEAD") {
+            return;
+        }
+
+        const cells = row.querySelectorAll("td");
+
+        const pan_card = cells[8].textContent;
+
+        const modal = new bootstrap.Modal(
+            document.getElementById("modal-5")
+        );
+
+
+        document.getElementById("pan_num").value = pan_card;
+
+        modal.show();
+    });
+
+    setPanCardNumberListenerAdded = true;
 }
 
 function loadApplicationTable() {
@@ -324,8 +373,8 @@ function loadApplicationTable() {
                             <td><div class="d-flex align-items-center m-1">${element.assignedToBankEmployee}</div></td>
                             <td><div class="d-flex m-1 align-items-center">${element.panCard}</div></td>
                             <td>
-                                <button class="btn border-0 p-0 m-1" data-bs-toggle="modal" data-bs-target="#modal-5">
-                                    <i class="bi bi-clipboard2-check-fill text-primary" style="font-size: 17px;"></i>
+                                <button class="btn border-0 p-0 m-1 changeStatus-btn">
+                                    <i class="bi bi-arrow-up-right-square text-primary" style="font-size: 17px;" onclick="setPanCardNumber()"></i>
                                 </button>
                             </td>
                         </tr>
