@@ -699,3 +699,24 @@ function employeeIDUseSearchApplication() {
         });
     allCallMy();
 }
+
+function login() {
+    let uname = document.getElementById("username").value;
+    let pw = document.getElementById("password").value;
+
+    const login_data = {
+        "userName": uname,
+        "password": pw
+    }
+
+    fetch("https://api.freeprojectapi.com/api/BankLoan/login", {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(login_data)
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+
+        });
+}
