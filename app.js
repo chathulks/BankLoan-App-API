@@ -255,31 +255,43 @@ function new_customerAdd() {
     let cusEmail = document.getElementById("cus_email").value;
     let cusPw = document.getElementById("cus_pw").value;
 
-    const newCustomer = {
-        "userId": cusId,
-        "userName": cusUname,
-        "emailId": cusEmail,
-        "fullName": cusFullname,
-        "password": cusPw
+    if (cusId == "") {
+        myAlert("user_registration_alert", "warning", "Please Enter Customer ID");
+    } else if (cusUname == "") {
+        myAlert("user_registration_alert", "warning", "Please Enter Username");
+    } else if (cusFullname == "") {
+        myAlert("user_registration_alert", "warning", "Please Enter Full Name");
+    } else if (cusEmail == "") {
+        myAlert("user_registration_alert", "warning", "Please Enter Email");
+    } else if (cusPw) {
+        myAlert("user_registration_alert", "warning", "Please Enter Password");
+    } else {
+        const newCustomer = {
+            "userId": cusId,
+            "userName": cusUname,
+            "emailId": cusEmail,
+            "fullName": cusFullname,
+            "password": cusPw
+        }
+
+        fetch("https://api.freeprojectapi.com/api/BankLoan/RegisterCustomer", {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newCustomer)
+        })
+            .then(response => response.json())
+            .then(data => {
+
+                loadUserTable();
+                newCustomerFieldClear();
+
+                const modalElement = document.getElementById("modal-2");
+                const modal_one = bootstrap.Modal.getInstance(modalElement);
+                modal_one.hide();
+
+                console.log(data);
+            });
     }
-
-    fetch("https://api.freeprojectapi.com/api/BankLoan/RegisterCustomer", {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(newCustomer)
-    })
-        .then(response => response.json())
-        .then(data => {
-
-            loadUserTable();
-            newCustomerFieldClear();
-
-            const modalElement = document.getElementById("modal-2");
-            const modal_one = bootstrap.Modal.getInstance(modalElement);
-            modal_one.hide();
-
-            console.log(data);
-        });
 
 }
 
