@@ -571,57 +571,57 @@ function saveApplication() {
         myAlert("login_alert", "warning", "Please Select Customer ID !");
 
     } else {
+        const application = {
+            "applicantID": app_id,
+            "fullName": full_name,
+            "applicationStatus": as_data,
+            "panCard": pan_card,
+            "dateOfBirth": formattedDate,
+            "email": email,
+            "phone": mobile,
+            "address": address,
+            "city": city,
+            "state": state,
+            "zipCode": zip_code,
+            "annualIncome": a_income,
+            "employmentStatus": e_status,
+            "creditScore": c_score,
+            "assets": assets,
+            "dateApplied": app_date,
+            "loans": [
+                {
+                    "loanID": l_id,
+                    "applicantID": app_id,
+                    "bankName": bank_name,
+                    "loanAmount": l_amount,
+                    "emi": emi
+                }
+            ],
+            "customerId": cus_id
+        }
+
+        console.log(application);
+
+        fetch("https://api.freeprojectapi.com/api/BankLoan/AddNewApplication", {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(application)
+        })
+            .then(response => response.json())
+            .then(data => {
+
+                loadApplicationTable();
+                saveApplicationFieldClear();
+
+                const modalElement = document.getElementById("modal-4");
+                const modal_one = bootstrap.Modal.getInstance(modalElement);
+                modal_one.hide();
+
+                console.log(data);
+                myAlert("login_alert", "warning", "Please Select Customer ID !");
+            });
 
     }
-
-    const application = {
-        "applicantID": app_id,
-        "fullName": full_name,
-        "applicationStatus": as_data,
-        "panCard": pan_card,
-        "dateOfBirth": formattedDate,
-        "email": email,
-        "phone": mobile,
-        "address": address,
-        "city": city,
-        "state": state,
-        "zipCode": zip_code,
-        "annualIncome": a_income,
-        "employmentStatus": e_status,
-        "creditScore": c_score,
-        "assets": assets,
-        "dateApplied": app_date,
-        "loans": [
-            {
-                "loanID": l_id,
-                "applicantID": app_id,
-                "bankName": bank_name,
-                "loanAmount": l_amount,
-                "emi": emi
-            }
-        ],
-        "customerId": cus_id
-    }
-
-    console.log(application);
-
-    fetch("https://api.freeprojectapi.com/api/BankLoan/AddNewApplication", {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(application)
-    })
-        .then(response => response.json())
-        .then(data => {
-
-            loadApplicationTable();
-            saveApplicationFieldClear();
-
-            const modalElement = document.getElementById("modal-4");
-            const modal_one = bootstrap.Modal.getInstance(modalElement);
-            modal_one.hide();
-
-            console.log(data);
-        });
 
 }
 
