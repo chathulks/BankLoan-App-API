@@ -62,31 +62,47 @@ function new_userAdd() {
     let nuEmail = document.getElementById("nu_email").value;
     let nuPw = document.getElementById("nu_pw").value;
 
-    const newUser = {
-        "userId": nuId,
-        "userName": nuUname,
-        "emailId": nuEmail,
-        "fullName": nuFullname,
-        "password": nuPw
+    if (nuId == "") {
+        myAlert("user_registration_alert", "warning", "Please Enter Customer ID");
+    } else if (nuUname == "") {
+        myAlert("user_registration_alert", "warning", "Please Enter Username");
+    } else if (nuFullname == "") {
+        myAlert("user_registration_alert", "warning", "Please Enter Full Name");
+    } else if (nuEmail == "") {
+        myAlert("user_registration_alert", "warning", "Please Enter Email");
+    } else if (nuPw == "") {
+        myAlert("user_registration_alert", "warning", "Please Enter Password");
+    } else {
+        const newUser = {
+            "userId": nuId,
+            "userName": nuUname,
+            "emailId": nuEmail,
+            "fullName": nuFullname,
+            "password": nuPw
+        }
+
+        fetch("https://api.freeprojectapi.com/api/BankLoan/RegisterAsBankUser", {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newUser)
+        })
+            .then(response => response.json())
+            .then(data => {
+
+                if (data.result == true) {
+
+                    myAlert("user_registration_alert", "info", data.message);
+
+                    loadUserTable();
+                    newUserFieldClear();
+
+                } else {
+                    myAlert("user_registration_alert", "warning", data.message);
+                }
+
+                console.log(data);
+            });
     }
-
-    fetch("https://api.freeprojectapi.com/api/BankLoan/RegisterAsBankUser", {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(newUser)
-    })
-        .then(response => response.json())
-        .then(data => {
-
-            loadUserTable(data);
-            newUserFieldClear();
-
-            const modalElement = document.getElementById("modal-1");
-            const modal_one = bootstrap.Modal.getInstance(modalElement);
-            modal_one.hide();
-
-            console.log(data);
-        });
 
 }
 
