@@ -508,67 +508,67 @@ function saveApplication() {
     let cus_id = document.getElementById("cus_id").value;
 
     if (full_name == "") {
-        myAlert("login_alert", "warning", "Please Enter Full Name !");
+        myAlert("application_alert", "warning", "Please Enter Full Name !");
 
     } else if (as_data == "Select") {
-        myAlert("login_alert", "warning", "Please Enter Full Name !");
+        myAlert("application_alert", "warning", "Please Enter Full Name !");
 
     } else if (pan_card == "") {
-        myAlert("login_alert", "warning", "Please Enter Pan Card !");
+        myAlert("application_alert", "warning", "Please Enter Pan Card !");
 
     } else if (dob == "") {
-        myAlert("login_alert", "warning", "Please Select Date Of Birth !");
+        myAlert("application_alert", "warning", "Please Select Date Of Birth !");
 
     } else if (email == "") {
-        myAlert("login_alert", "warning", "Please Enter Your Email !");
+        myAlert("application_alert", "warning", "Please Enter Your Email !");
 
     } else if (mobile == "") {
-        myAlert("login_alert", "warning", "Please Enter Your Mobile !");
+        myAlert("application_alert", "warning", "Please Enter Your Mobile !");
 
     } else if (address == "") {
-        myAlert("login_alert", "warning", "Please Enter Your Address !");
+        myAlert("application_alert", "warning", "Please Enter Your Address !");
 
     } else if (city == "") {
-        myAlert("login_alert", "warning", "Please Enter Your City !");
+        myAlert("application_alert", "warning", "Please Enter Your City !");
 
     } else if (state == "") {
-        myAlert("login_alert", "warning", "Please Enter Your State !");
+        myAlert("application_alert", "warning", "Please Enter Your State !");
 
     } else if (zip_code == "") {
-        myAlert("login_alert", "warning", "Please Enter Your Zip-Code !");
+        myAlert("application_alert", "warning", "Please Enter Your Zip-Code !");
 
     } else if (a_income == "") {
-        myAlert("login_alert", "warning", "Please Enter Annual Income !");
+        myAlert("application_alert", "warning", "Please Enter Annual Income !");
 
     } else if (e_status == "Select") {
-        myAlert("login_alert", "warning", "Please Select Employee Status !");
+        myAlert("application_alert", "warning", "Please Select Employee Status !");
 
     } else if (c_score == "") {
-        myAlert("login_alert", "warning", "Please Enter Credit Score !");
+        myAlert("application_alert", "warning", "Please Enter Credit Score !");
 
     } else if (assets == "") {
-        myAlert("login_alert", "warning", "Please Enter Your Assets !");
+        myAlert("application_alert", "warning", "Please Enter Your Assets !");
 
     } else if (app_date == "") {
-        myAlert("login_alert", "warning", "Please Enter Applied Date !");
+        myAlert("application_alert", "warning", "Please Enter Applied Date !");
 
     } else if (l_id == "") {
-        myAlert("login_alert", "warning", "Please Enter Your Loan ID !");
+        myAlert("application_alert", "warning", "Please Enter Your Loan ID !");
 
     } else if (app_id == "") {
-        myAlert("login_alert", "warning", "Please Enter Application ID !");
+        myAlert("application_alert", "warning", "Please Enter Application ID !");
 
     } else if (bank_name == "") {
-        myAlert("login_alert", "warning", "Please Enter Bank Name !");
+        myAlert("application_alert", "warning", "Please Enter Bank Name !");
 
     } else if (l_amount == "") {
-        myAlert("login_alert", "warning", "Please Enter Your Loan Amount !");
+        myAlert("application_alert", "warning", "Please Enter Your Loan Amount !");
 
     } else if (emi == "") {
-        myAlert("login_alert", "warning", "Please Enter EMI Number !");
+        myAlert("application_alert", "warning", "Please Enter EMI Number !");
 
     } else if (cus_id == "Select") {
-        myAlert("login_alert", "warning", "Please Select Customer ID !");
+        myAlert("application_alert", "warning", "Please Select Customer ID !");
 
     } else {
         const application = {
@@ -618,7 +618,7 @@ function saveApplication() {
                 modal_one.hide();
 
                 console.log(data);
-                myAlert("login_alert", "warning", "Please Select Customer ID !");
+                myAlert("application_alert", "warning", "Please Select Customer ID !");
             });
 
     }
