@@ -283,7 +283,7 @@ function new_customerAdd() {
             .then(data => {
 
                 if (data.result == true) {
-                    myAlert("customer_registration_alert", "warning", data.message);
+                    myAlert("customer_registration_alert", "info", data.message);
 
                     loadUserTable();
                     newCustomerFieldClear();
