@@ -256,15 +256,15 @@ function new_customerAdd() {
     let cusPw = document.getElementById("cus_pw").value;
 
     if (cusId == "") {
-        myAlert("user_registration_alert", "warning", "Please Enter Customer ID");
+        myAlert("customer_registration_alert", "warning", "Please Enter Customer ID");
     } else if (cusUname == "") {
-        myAlert("user_registration_alert", "warning", "Please Enter Username");
+        myAlert("customer_registration_alert", "warning", "Please Enter Username");
     } else if (cusFullname == "") {
-        myAlert("user_registration_alert", "warning", "Please Enter Full Name");
+        myAlert("customer_registration_alert", "warning", "Please Enter Full Name");
     } else if (cusEmail == "") {
-        myAlert("user_registration_alert", "warning", "Please Enter Email");
+        myAlert("customer_registration_alert", "warning", "Please Enter Email");
     } else if (cusPw == "") {
-        myAlert("user_registration_alert", "warning", "Please Enter Password");
+        myAlert("customer_registration_alert", "warning", "Please Enter Password");
     } else {
         const newCustomer = {
             "userId": cusId,
@@ -282,14 +282,15 @@ function new_customerAdd() {
             .then(response => response.json())
             .then(data => {
 
-                loadUserTable();
-                newCustomerFieldClear();
+                if (data.result == true) {
+                    myAlert("customer_registration_alert", "warning", data.message);
 
-                const modalElement = document.getElementById("modal-2");
-                const modal_one = bootstrap.Modal.getInstance(modalElement);
-                modal_one.hide();
+                    loadUserTable();
+                    newCustomerFieldClear();
+                } else {
+                    myAlert("customer_registration_alert", "warning", data.message);
+                }
 
-                console.log(data);
             });
     }
 
