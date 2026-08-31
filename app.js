@@ -300,10 +300,6 @@ function changeApplicationStatus() {
 
                 myAlert("application_status_alert", "info", data.message);
 
-                const modalElement = document.getElementById("modal-5");
-                const modal_one = bootstrap.Modal.getInstance(modalElement);
-                modal_one.hide();
-
                 clearChangeApplicationField();
                 loadApplicationTable();
 
@@ -623,10 +619,6 @@ function saveApplication() {
 
                     loadApplicationTable();
                     saveApplicationFieldClear();
-
-                    const modalElement = document.getElementById("modal-4");
-                    const modal_one = bootstrap.Modal.getInstance(modalElement);
-                    modal_one.hide();
 
                 } else {
                     myAlert("application_alert", "warning", data.message);
