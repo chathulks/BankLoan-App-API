@@ -719,6 +719,7 @@ function user_login() {
             if (data.result == true) {
                 window.location = "./dashboard.html";
             } else {
+                myAlert("","","");
                 alert(data.message);
             }
         });
