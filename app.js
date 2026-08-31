@@ -254,7 +254,6 @@ function update() {
                     myAlert("user_update_alert", "info", data.message);
                 }
 
-                console.log(data.message);
             });
     }
 
