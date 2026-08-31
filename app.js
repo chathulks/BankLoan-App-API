@@ -295,14 +295,21 @@ function changeApplicationStatus() {
     fetch(`https://api.freeprojectapi.com/api/BankLoan/CheckApplicationStatus?panNo=${pan_card}&status=${app_st}`)
         .then(response => response.json())
         .then(data => {
-            console.log(data);
 
-            const modalElement = document.getElementById("modal-5");
-            const modal_one = bootstrap.Modal.getInstance(modalElement);
-            modal_one.hide();
+            if (data.result == true) {
 
-            clearChangeApplicationField();
-            loadApplicationTable();
+                myAlert("application_status_alert", "info", data.message);
+
+                const modalElement = document.getElementById("modal-5");
+                const modal_one = bootstrap.Modal.getInstance(modalElement);
+                modal_one.hide();
+
+                clearChangeApplicationField();
+                loadApplicationTable();
+
+            } else {
+                myAlert("application_status_alert", "warning", data.message);
+            }
 
         });
 }
