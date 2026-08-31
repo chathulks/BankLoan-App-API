@@ -723,3 +723,8 @@ function user_login() {
             }
         });
 }
+
+function myAlert(alertDiv, alertStatus, alertMessage) {
+    let alertSection = document.getElementById(`${alertDiv}`);
+    alertSection.innerHTML = `<div class="alert alert-${alertStatus}" role="alert">${alertMessage}</div>`;
+}
