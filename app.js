@@ -263,7 +263,7 @@ function new_customerAdd() {
         myAlert("user_registration_alert", "warning", "Please Enter Full Name");
     } else if (cusEmail == "") {
         myAlert("user_registration_alert", "warning", "Please Enter Email");
-    } else if (cusPw) {
+    } else if (cusPw == "") {
         myAlert("user_registration_alert", "warning", "Please Enter Password");
     } else {
         const newCustomer = {
