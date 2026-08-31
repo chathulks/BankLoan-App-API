@@ -206,37 +206,58 @@ function update() {
     let create_date = document.getElementById("uu_cd").value;
     let pw = document.getElementById("uu_pw").value;
 
-    const userData =
-    {
-        "userId": uu_id,
-        "userName": username,
-        "emailId": email,
-        "fullName": full_name,
-        "role": role,
-        "createdDate": create_date,
-        "password": pw,
-        "projectName": "BankLoan",
-        "refreshToken": null,
-        "refreshTokenExpiryTime": null
-    };
+    if (uu_id == "") {
+        myAlert("user_update_alert", "warning", "Please Enter User ID");
+    } else if (username == "") {
+        myAlert("user_update_alert", "warning", "Please Enter Username");
+    } else if (email == "") {
+        myAlert("user_update_alert", "warning", "Please Enter Email");
+    } else if (full_name == "") {
+        myAlert("user_update_alert", "warning", "Please Enter Full Name");
+    } else if (role == "") {
+        myAlert("user_update_alert", "warning", "Please Enter Customer Role");
+    } else if (create_date == "") {
+        myAlert("user_update_alert", "warning", "Please Enter Created Date");
+    } else if (pw == "") {
+        myAlert("user_update_alert", "warning", "Please Enter Password");
+    } else {
+        const userData =
+        {
+            "userId": uu_id,
+            "userName": username,
+            "emailId": email,
+            "fullName": full_name,
+            "role": role,
+            "createdDate": create_date,
+            "password": pw,
+            "projectName": "BankLoan",
+            "refreshToken": null,
+            "refreshTokenExpiryTime": null
+        };
 
-    fetch("https://api.freeprojectapi.com/api/BankLoan/UpdateUser", {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(userData)
-    })
-        .then(response => response.json())
-        .then(data => {
+        fetch("https://api.freeprojectapi.com/api/BankLoan/UpdateUser", {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(userData)
+        })
+            .then(response => response.json())
+            .then(data => {
 
-            loadUserTable();
-            updateInputFieldClear();
+                if (data.result == true) {
 
-            const modalElement = document.getElementById("modal-3");
-            const modal_one = bootstrap.Modal.getInstance(modalElement);
-            modal_one.hide();
+                    myAlert("user_update_alert", "info", data.message);
 
-            console.log(data.message);
-        });
+                    loadUserTable();
+                    updateInputFieldClear();
+
+                } else {
+                    myAlert("user_update_alert", "info", data.message);
+                }
+
+                console.log(data.message);
+            });
+    }
+
 }
 
 function newCustomerFieldClear() {
