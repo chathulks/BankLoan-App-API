@@ -511,7 +511,7 @@ function saveApplication() {
         myAlert("application_alert", "warning", "Please Enter Full Name !");
 
     } else if (as_data == "Select") {
-        myAlert("application_alert", "warning", "Please Enter Full Name !");
+        myAlert("application_alert", "warning", "Please Select Application Status !");
 
     } else if (pan_card == "") {
         myAlert("application_alert", "warning", "Please Enter Pan Card !");
@@ -528,8 +528,8 @@ function saveApplication() {
     } else if (address == "") {
         myAlert("application_alert", "warning", "Please Enter Your Address !");
 
-    } else if (city == "") {
-        myAlert("application_alert", "warning", "Please Enter Your City !");
+    } else if (city == "Select") {
+        myAlert("application_alert", "warning", "Please Select Your City !");
 
     } else if (state == "") {
         myAlert("application_alert", "warning", "Please Enter Your State !");
@@ -618,7 +618,7 @@ function saveApplication() {
                 modal_one.hide();
 
                 console.log(data);
-                myAlert("application_alert", "warning", "Please Select Customer ID !");
+                myAlert("application_alert", "info", data.message);
             });
 
     }
@@ -793,5 +793,5 @@ function user_login() {
 
 function myAlert(alertDiv, alertStatus, alertMessage) {
     let alertSection = document.getElementById(`${alertDiv}`);
-    alertSection.innerHTML = `<div class="alert alert-${alertStatus} d-flex justify-content-center align-items-center" role="alert" style="height:40px">${alertMessage}</div>`;
+    alertSection.innerHTML = `<div class="alert alert-${alertStatus} d-flex justify-content-center align-items-center" role="alert" style="height:45px; width:600px">${alertMessage}</div>`;
 }
