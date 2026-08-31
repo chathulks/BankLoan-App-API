@@ -799,5 +799,5 @@ function user_login() {
 
 function myAlert(alertDiv, alertStatus, alertMessage) {
     let alertSection = document.getElementById(`${alertDiv}`);
-    alertSection.innerHTML = `<div class="alert alert-${alertStatus} d-flex justify-content-center align-items-center" role="alert" style="height:45px; width:600px">${alertMessage}</div>`;
+    alertSection.innerHTML = `<div class="alert alert-${alertStatus}" role="alert">${alertMessage}</div>`;
 }
